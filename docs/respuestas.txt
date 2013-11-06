@@ -1,1 +1,5 @@
 Respuestas a las preguntas
+1º ¿Qué es clonar un repositorio?
+Clonar un repositorio significa bajarse una copia completa del mismo a nuestro ordenador, es decir, despues de clonarlo tendremos en nuestro ordenador todo nuestro repositorio completo. Estaremos trabajando con la rama master.
+
+2º ¿Qué es una rama?
