@@ -11,3 +11,6 @@ La rama por defecto de Git es la rama 'master'. Con la primera confirmación de 
 En cada confirmación de cambios que realicemos, la rama irá avanzando automáticamente. Y la rama 'master' apuntará siempre a la última confirmación realizada.
 
 >>>>>>> remotes/origin/Ismael
+
+3º ¿Qué significado tiene la respuesta Fast-forward?
+La respuesta Fast-forward aparece despues de utilizar (git merge branch), significa que git movió el puntero del master hacia adelante en el arbol.
