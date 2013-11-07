@@ -23,6 +23,7 @@ def equal(expr1, expr2, A, B, n):
   porcentajeFallos = 0.0
   for i in range(0,n):
       a = random.uniform(A,B)
+      #Diego
       b = random.uniform(A,B)
       if (eval(expr1) != eval(expr2)):
           porcentajeFallos += 1
