@@ -1,3 +1,4 @@
+
 Respuestas a las preguntas
 
 1º ¿Qué es clonar un repositorio?
@@ -8,3 +9,17 @@ Clonar un repositorio significa bajarse una copia completa del mismo a nuestro o
 Una rama es un nombre de confirmación, una referencia desde la cuál un apuntador móvil apunta a la confirmaciones de cambios (commit). 
 La rama por defecto de Git es la rama 'master'. Con la primera confirmación de cambios que realicemos, se creará esta rama principal 'master' apuntando a dicha confirmación. 
 En cada confirmación de cambios que realice, la rama irá avanzando automáticamente. Y la rama 'master' apuntará siempre a la última confirmación realizada.
+
+Respuestas a las preguntas
+1º ¿Qué es clonar un repositorio?
+Clonar un repositorio significa bajarse una copia completa del mismo a nuestro ordenador, es decir, despues de clonarlo tendremos en nuestro ordenador todo nuestro repositorio completo. Estaremos trabajando con la rama master.
+
+2º ¿Qué es una rama?
+
+Una rama es un nombre de confirmación, una referencia desde la cuál un apuntador móvil apunta a la confirmaciones de cambios (commit). 
+La rama por defecto de Git es la rama 'master'. Con la primera confirmación de cambios que realicemos, se creará esta rama principal 'master' apuntando a dicha confirmación. 
+En cada confirmación de cambios que realicemos, la rama irá avanzando automáticamente. Y la rama 'master' apuntará siempre a la última confirmación realizada.
+
+
+3º ¿Qué significado tiene la respuesta Fast-forward?
+La respuesta Fast-forward aparece despues de utilizar (git merge branch), significa que git movió el puntero del master hacia adelante en el arbol.
