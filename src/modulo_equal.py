@@ -6,8 +6,11 @@
 # y random para la generacion de numeros aleatorios
 import sys
 import random
+
 from math import *
 from numpy import *
+
+
 #-------------------------------------------------------------------------------
 # Funcion: equal
 # Parametros:
