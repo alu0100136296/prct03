@@ -7,4 +7,4 @@ Clonar un repositorio significa bajarse una copia completa del mismo a nuestro o
 
 Una rama es un nombre de confirmación, una referencia desde la cuál un apuntador móvil apunta a la confirmaciones de cambios (commit). 
 La rama por defecto de Git es la rama 'master'. Con la primera confirmación de cambios que realicemos, se creará esta rama principal 'master' apuntando a dicha confirmación. 
-En cada confirmación de cambios que realicemos, la rama irá avanzando automáticamente. Y la rama 'master' apuntará siempre a la última confirmación realizada.
+En cada confirmación de cambios que realice, la rama irá avanzando automáticamente. Y la rama 'master' apuntará siempre a la última confirmación realizada.

@@ -7,6 +7,7 @@
 import sys
 import random
 
+
 #-------------------------------------------------------------------------------
 # Funcion: equal
 # Parametros:
