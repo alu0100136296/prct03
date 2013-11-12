@@ -33,10 +33,12 @@ def equal(expr1, expr2, A, B, n):
             nFallos += 1
       except:
         total -= 1
-  if (total != n):
-    print "Se han producido", n - total, "errores durante la evaluacion"
-    print "Compruebe el rango de valores aleatorios"
-    print "Compruebe la correccion de las formulas a evaluar"
+#  if (total != n):
+#    print "Se han producido", n - total, "errores durante la evaluacion"
+#    print "Compruebe el rango de valores aleatorios"
+#    print "Compruebe la correccion de las formulas a evaluar"
+  if (total == 0.0):
+      return 100.0
   return ((nFallos / float(total)) * 100.0)
 
 
