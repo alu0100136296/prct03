@@ -23,13 +23,21 @@ from numpy import *
 #  se producen a la hora de compararlas
 #-------------------------------------------------------------------------------
 def equal(expr1, expr2, A, B, n):
-  porcentajeFallos = 0.0
+  total = n
+  nFallos = 0.0
   for i in range(0,n):
       a = random.uniform(A,B)
       b = random.uniform(A,B)
-      if (eval(expr1) != eval(expr2)):
-          porcentajeFallos += 1
-  return ((porcentajeFallos / float(n)) * 100.0)
+      try:
+        if (eval(expr1) != eval(expr2)):
+            nFallos += 1
+      except:
+        total -= 1
+  if (total != n):
+    print "Se han producido", n - total, "errores durante la evaluacion"
+    print "Compruebe el rango de valores aleatorios"
+    print "Compruebe la correccion de las formulas a evaluar"
+  return ((nFallos / float(total)) * 100.0)
 
 
 
