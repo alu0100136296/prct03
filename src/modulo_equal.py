@@ -1,15 +1,27 @@
 #! /usr/bin/python
-# MODULO PYTHON PARA LA FUNCION EVAL (pendiente de edicion)
-
-
+#-------------------------------------------------------------------------------
+# Asignatura: Herramientas Informaticas de Alto Nivel (2013 / 2014)
+# Autores:
+#   - Bentorey Hernandez
+#   - Manuel de Leon
+#   - Ismael de la Viuda
+# Observaciones:
+#   Uso:
+#     $./modulo_equal.py
+#     $./modulo_equal.py <expr1> <expr2> <min_value> <max_value> <numero_test>
+#   Define la funcion equal, que tratara de evaluar si dos expresiones matemati-
+#  cas son equivalentes devolviendo el porcentaje de errores al evaluarlas y
+#  compararlas.
+#   Ademas, permite realizar una ejecucion de ejemplo o evaluar en linea de
+#  comandos dos expresiones distintas
+#-------------------------------------------------------------------------------
 # Importamos sys para operar sobre los parametros pasados en linea de comandos
 # y random para la generacion de numeros aleatorios
+# math y numpy son necesarias para la evaluacion de expresiones matematicas
 import sys
 import random
-
 from math import *
 from numpy import *
-
 
 #-------------------------------------------------------------------------------
 # Funcion: equal
@@ -33,27 +45,20 @@ def equal(expr1, expr2, A, B, n):
             nFallos += 1
       except:
         total -= 1
-#  if (total != n):
-#    print "Se han producido", n - total, "errores durante la evaluacion"
-#    print "Compruebe el rango de valores aleatorios"
-#    print "Compruebe la correccion de las formulas a evaluar"
-  if (total == 0.0):
-      return 100.0
+  if (total == 0.0):    # En caso de que se hayan producido fallos en todas las
+      return 100.0      # expresiones, devolvemos 100 % de error
   return ((nFallos / float(total)) * 100.0)
 
-
-
+#-------------------------------------------------------------------------------
 # Siguiendo el ejemplo de ejecucion del guion de la practica
-# /practicas/src$ ./modulo_equal.py \(a*b\)**4 a**4*b**4 -100 100 10000
+# /practicas/src$ ./modulo_equal.py \(a*b\)**3 a**3*b**3 -100 100 10000
 # procedemos a reconocer los parametros actuales, en caso de que haya
 # un fallo, abortaremos la ejecucion
 
-
 # Bloque de comprobaciones
 if __name__ == '__main__':
-
-  errorEntrada = False
-  if (len(sys.argv) != 6):
+  errorEntrada = False       # Contralamos que los valores pasados por linea de
+  if (len(sys.argv) != 6):   # comandos esten y que sean correctos
     errorEntrada = True
   else:
     try:
@@ -65,7 +70,7 @@ if __name__ == '__main__':
       errorEntrada = True
 
   if (errorEntrada):
-    print "La forma de uso es ./equal.py expr1 expr2 min_value max_value numero_test"
+    print "La forma de uso es ./modulo_equal.py expr1 expr2 min_value max_value numero_test"
     print "Se usan los valores por defecto:"
     print "./modulo_equal.py  expr1       expr2       min_value   max_value    numero_test   fallos"
     print "./modulo_equal.py  (a*b)**3 (a**3)*(b**3)   -100.0       100.0         500        ", equal("(a*b)**3", "(a**3)*(b**3)", -100.0, 100.0, 500)
@@ -78,3 +83,4 @@ if __name__ == '__main__':
         print "Se ha producido un error durante la ejecucion"
         exit()
     print "Porcentaje de Fallos", porcentajeFallos
+#-------------------------------------------------------------------------------

@@ -1,22 +1,23 @@
 #! /usr/bin/python
+#-------------------------------------------------------------------------------
+# Asignatura: Herramientas Informaticas de Alto Nivel (2013 / 2014)
+# Autores:
+#   - Bentorey Hernandez
+#   - Manuel de Leon
+#   - Ismael de la Viuda
+# Observaciones:
+#   Uso:
+#     $./identidades.py
+#     $./identidades.py <lim inf rango> <lim sup rango> <iteraciones>
+#   Genera una lista de funciones a evaluar y realiza las llamadas pertinentes
+#  a equal (disponible en el modulo modulo_equal.
+#   Muestra una tabla con los resultados obtenidos
+#-------------------------------------------------------------------------------
 import sys
 from modulo_equal import equal
 from math import *
  
- 
-def formatStr(palabra, maxLen):
-    cond = True
-    pal = palabra
-    while len(pal) < maxLen:
-        if cond:
-            pal = " " + pal
-        else:
-            pal = pal + " "
-        cond = not cond
-    return pal
- 
- 
- 
+# Cada una de las expresiones
 a1 = "(a*b)**3" 
 a2 = "(a**3)*(b**3)"
 b1 = "a/b"
@@ -48,13 +49,13 @@ n2 = "(sin(a+b))/(cos(a+b))"
 o1 = "sin(a+b)"
 o2 = "(sin(a)*cos(b))+(sin(b)*cos(a))"
 
+# Lista con las identidades a evaluar
 identidades = [(a1, a2), (b1, b2), (c1, c2), (d1, d2), (e1, e2), (f1 ,f2), (g1, g2), (h1, h2), (i1, i2), (j1, j2), (k1, k2), (l1, l2), (m1, m2), (n1, n2), (o1, o2)]
-
 
 if __name__ == '__main__':
     falloparametros = False 
-    if len(sys.argv) == 4:
-        try:
+    if len(sys.argv) == 4: # Intentamos recuperar los parametros por linea de
+        try:               # comandos
             A = float (sys.argv[1])
             B = float (sys.argv[2])
             n = int (sys.argv[3])
@@ -63,9 +64,9 @@ if __name__ == '__main__':
     else:
         falloparametros = True
     
-    if falloparametros:
-        A = -100.0
-        B = 100.0
+    if falloparametros: #   En caso de que los parametros no sean validos o
+        A = -100.0      # que no se hayan introducido, evaluamos con los
+        B = 100.0       # valores por defecto
         n = 500
         print "Se produjo un error al recuperar los parametros por linea de comandos"
         print "Se usan los valores por defecto"
@@ -73,37 +74,23 @@ if __name__ == '__main__':
         print "\tB = 100.0"
         print "\tn = 500"
         
-        
     # Nos preparamos para mostrar la tabla de resultados
-    
+    # Obtenemos la maxima longitud de las expresiones
     maxLen = 0
     for i in identidades:
-        print i,len(i[0]),len(i[1])
         if (len(i[0]) > maxLen):
             maxLen = len(i[0])
         if (len(i[1]) > maxLen):
             maxLen = len(i[1])
-    print "La maxima longitud es:", maxLen
-    
-    #tabla = []
-    #for i in identidades:
-    #    expr1 = formatStr(i[0], maxLen)
-    #    expr2 = formatStr(i[1], maxLen)
-    #    tabla.append([expr1, expr2])
-    
-    
-    
-    print formatStr("expr1",maxLen), formatStr("expr2", maxLen), " min_value     max_value    numero_test  fallos"
-    
+   
+    # Cadena con el formato para mostrar por pantalla
     forma = "{0:^" + str(maxLen) + "}"
+    
+    print forma.format("expr1"), forma.format("expr2"), " min_value     max_value    numero_test  fallos"
+    
     for i in identidades:
-        #expr1 = "{0:^" + str(maxLen) + (i[0], maxLen)
-        #expr2 = formatStr(i[1], maxLen)
         expr1 = forma.format(i[0])
         expr2 = forma.format(i[1])
         val = equal(i[0], i[1], A, B, n)
         print expr1, expr2, "  "+ str(A)+"\t    ", str(B)+"\t  ", str(n)+"\t     ", "{0:.2f}".format(val)
-    
-    
-    
-    
+#-------------------------------------------------------------------------------
