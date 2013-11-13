@@ -3,6 +3,20 @@ import sys
 from modulo_equal import equal
 from math import *
  
+ 
+def formatStr(palabra, maxLen):
+    cond = True
+    pal = palabra
+    while len(pal) < maxLen:
+        if cond:
+            pal = " " + pal
+        else:
+            pal = pal + " "
+        cond = not cond
+    return pal
+ 
+ 
+ 
 a1 = "(a*b)**3" 
 a2 = "(a**3)*(b**3)"
 b1 = "a/b"
@@ -59,11 +73,36 @@ if __name__ == '__main__':
         print "\tB = 100.0"
         print "\tn = 500"
         
-            
-print "expr1       expr2       min_value   max_value    numero_test   fallos"
+        
+    # Nos preparamos para mostrar la tabla de resultados
     
-for i in identidades:
-    print i[0], i[1], "  "+ str(A)+"\t    ", str(B)+"\t  ", str(n)+"\t     ", equal(i[0], i[1], A, B, n)
+    maxLen = 0
+    for i in identidades:
+        print i,len(i[0]),len(i[1])
+        if (len(i[0]) > maxLen):
+            maxLen = len(i[0])
+        if (len(i[1]) > maxLen):
+            maxLen = len(i[1])
+    print "La maxima longitud es:", maxLen
+    
+    #tabla = []
+    #for i in identidades:
+    #    expr1 = formatStr(i[0], maxLen)
+    #    expr2 = formatStr(i[1], maxLen)
+    #    tabla.append([expr1, expr2])
+    
+    
+    
+    print formatStr("expr1",maxLen), formatStr("expr2", maxLen), " min_value     max_value    numero_test  fallos"
+    
+    forma = "{0:^" + str(maxLen) + "}"
+    for i in identidades:
+        #expr1 = "{0:^" + str(maxLen) + (i[0], maxLen)
+        #expr2 = formatStr(i[1], maxLen)
+        expr1 = forma.format(i[0])
+        expr2 = forma.format(i[1])
+        val = equal(i[0], i[1], A, B, n)
+        print expr1, expr2, "  "+ str(A)+"\t    ", str(B)+"\t  ", str(n)+"\t     ", "{0:.2f}".format(val)
     
     
     
